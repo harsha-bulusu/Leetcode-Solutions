@@ -3,10 +3,6 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        if len(nums1) == 0:
-            return nums2
-        if len(nums2) == 0:
-            return nums1
         c1 = c2 = 0
         
         #copy numbers of nums1 to a temp array
