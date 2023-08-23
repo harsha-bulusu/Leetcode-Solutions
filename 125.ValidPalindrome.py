@@ -1,11 +1,13 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
         c1 = 0
         c2 = len(s) - 1
 
         while c1 < c2:
-            ch1 = s[c1].lower()
-            ch2 = s[c2].lower()
+            ch1 = s[c1]
+            ch2 = s[c2]
+
             if not ch1.isdigit() and not ch1.isalpha():
                 c1+=1
                 continue
@@ -18,5 +20,5 @@ class Solution:
 
             c1+=1
             c2-=1
-          
+        
         return True
