@@ -3,7 +3,6 @@ class Solution {
     void solve(int[] nums, boolean[] ref, List<Integer> list, List<List<Integer>> res) {
 
         if (nums.length == list.size()) {
-            System.out.println("added , " + list);
             res.add(new ArrayList<>(list));
             return;
         }
