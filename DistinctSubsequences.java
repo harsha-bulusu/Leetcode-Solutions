@@ -80,7 +80,8 @@ class Solution {
                 //operations
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
                     dp[j] = dp[j - 1] + dp[j]; //pick + notPick
-                }
+                } 
+                // else can be ignored because it assigns the same value to it dp[j] = dp[j];
             }
         }
         return dp[n];
