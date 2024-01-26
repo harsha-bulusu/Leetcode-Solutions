@@ -14,7 +14,6 @@ class Solution {
         int left = solve(i, j - 1, maxMove - 1, m, n, dp) % mod;
         int right = solve(i, j + 1, maxMove - 1, m, n, dp) % mod;
 
-        System.out.println(up + " " + left + " " + down + " " + right);
         return dp[i][j][maxMove] = ((up + left) % mod + (down + right) % mod) % mod;
     }
 
