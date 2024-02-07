@@ -71,6 +71,7 @@ class Solution {
 
         /**
             * Approach - 3: Dutch National flag algorithm
+            TC: O(n), SC: O(1)
          */
         int n = nums.length;
         int low = 0, high = n - 1, mid = 0;
