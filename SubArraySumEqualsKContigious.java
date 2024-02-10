@@ -1,21 +1,27 @@
-/**
-  * Concept of Prefix sum
-*/
-
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        // Map for storing prefixSum and occurrances
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1);
-        int prefixSum = 0;
+        // Brute force TC : O(n ^ 2), SC: O(1)
+        // int count = 0;
+        // for (int i = 0; i < nums.length; i++){
+        //     int sum = 0;
+        //     for (int j = i; j < nums.length; j++) {
+        //         sum += nums[j];
+        //         if (sum == k) count++;
+        //     }
+        // }
+        // return count;
+
+        // Optimal Approach : Hashing - Prefix sum
+        Map<Integer, Integer> prefixSum = new HashMap<>(); // for storing sum, count
+        prefixSum.put(0, 1);
+        int sum = 0;
         int count = 0;
-
         for (int num : nums) {
-            prefixSum += num;
-            count += map.getOrDefault(prefixSum - k, 0);
-            map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1); 
+            sum += num;
+            int diff = sum - k;
+            count += prefixSum.getOrDefault(diff, 0);
+            prefixSum.put(sum, prefixSum.getOrDefault(sum, 0) + 1);
         }
-
         return count;
-    }
+    } 
 }
