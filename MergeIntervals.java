@@ -11,6 +11,9 @@ class Solution {
 
 
         // check for overlapping intervals
+        /**
+            * Optimal TC: O(n)
+         */
         List<List<Integer>> res = new ArrayList<>();
         int n = intervals.length;
         for (int i = 0; i < n; i++) {
@@ -24,6 +27,32 @@ class Solution {
                 res.add(Arrays.asList(start, end));
             }
         }
+
+        /**
+            * Brute force TC: O(2N) SC: O(res)
+         */
+
+        // for (int i = 0; i < n; i++) {
+        //     int start = intervals[i][0];
+        //     int end = intervals[i][1];
+
+        //     // compare how many can be merged with your interval
+
+        //     if (!res.isEmpty() && res.get(res.size() - 1).get(1) >= end) {
+        //         continue;
+        //     }
+
+        //     for (int j = i + 1; j < n; j++) {
+        //         int currStart = intervals[j][0];
+
+        //         if (currStart <= end) {
+        //             end = Math.max(end, intervals[j][1]);
+        //         } else {
+        //             break;
+        //         }
+        //     }
+        //     res.add(Arrays.asList(start, end));
+        // }
 
 
         // convert res to 2d array and return
