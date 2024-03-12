@@ -14,25 +14,13 @@
  * }
  */
 class Solution {
-
-    TreeNode match = null;
-
-    void inorder(TreeNode root, int val) {
-        if (root == null || match != null) {
-            return;
-        }
-
-        inorder(root.left, val);
-
-        if(root.val == val) {
-            match = root;
-        }
-
-        inorder(root.right, val);
-    }
-
     public TreeNode searchBST(TreeNode root, int val) {
-        inorder(root, val);
-        return match;
+        TreeNode cursor = root;
+
+        while (cursor != null && cursor.val != val) {
+            cursor = cursor.val > val ? cursor.left : cursor.right;
+        }
+
+        return cursor;
     }
 }
