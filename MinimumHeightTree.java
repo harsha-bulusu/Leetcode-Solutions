@@ -38,12 +38,12 @@ class Solution {
         }
 
 
-        int indegree[] = new int[n];
+        int degree[] = new int[n];
         Queue<Integer> leaves = new LinkedList<>();
         for (int i = 0; i < n; i++) {
-            indegree[i] = adj.get(i).size();
+            degree[i] = adj.get(i).size();
             
-            if (indegree[i] == 1) {
+            if (degree[i] == 1) {
                 leaves.add(i);
             }
         }
@@ -58,8 +58,8 @@ class Solution {
                 int node = leaves.remove();
                 n--;
                 for (int adjNode : adj.get(node)) {
-                    indegree[adjNode]--;
-                    if (indegree[adjNode] == 1) {
+                    degree[adjNode]--;
+                    if (degree[adjNode] == 1) {
                         leaves.add(adjNode);
                     }
                 }
