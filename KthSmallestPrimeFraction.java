@@ -44,6 +44,7 @@ class Solution {
         //     minHeap.poll();
         // }  
 
+        /**The Elements are in sorted order, Make advantage */
         // O(n * log K)
         for (int l = 0; l < n - 1; l++) {
             minHeap.add(new Triplet(l, n - 1, (double) arr[l] / (double) arr[n - 1]));
