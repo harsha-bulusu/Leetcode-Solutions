@@ -85,3 +85,31 @@ class Solution {
         return count2(nums, n, s2);
     }
 }
+
+
+/**
+class Solution {
+
+    private int helper(int index, int[] nums, int target, int n, int sum, int[][] dp, int offset) {
+        if (index == n) return sum == target ? 1 : 0;
+
+        if (dp[index][sum + offset] != -1) return dp[index][sum + offset];
+
+        int r1 = helper(index + 1, nums, target, n, sum + nums[index] * 1, dp, offset);
+        int r2 = helper(index + 1, nums, target, n, sum + nums[index] * -1, dp, offset);
+
+        return dp[index][sum + offset] = r1 + r2;
+    }
+
+    public int findTargetSumWays(int[] nums, int target) {
+        int n = nums.length;
+        int maxSum = Arrays.stream(nums).reduce((n1, n2) -> n1 + n2).getAsInt();
+        int dp[][] = new int[n][2 * maxSum + 1]; // doubled column size to handle negative weights
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
+        }
+
+        return helper(0, nums, target, nums.length, 0, dp, maxSum);
+    }
+}
+*/
